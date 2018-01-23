@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-dialog-content>
+    <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="updateGridForm">
+
+
+      <div class="select">
+        <mat-select class="align-select" placeholder="Antena type" class="full-width" formControlName="antenatype">
+          <mat-option class="align-select" *ngFor="let food of antenaType" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </div>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Height" formControlName="height">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="leg location" formControlName="legLocation">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Qty" formControlName="qty">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Azimuth" formControlName="azimuth">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Lines" formControlName="lines">
+      </mat-form-field>
+
+
+      <div class="actions-container">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!updateGridForm.valid">
+          Save
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

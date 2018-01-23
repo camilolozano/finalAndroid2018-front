@@ -1,0 +1,121 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Form data">
+        <!-- Form data init-->
+        <div class="container">
+          <form class="example-form" (ngSubmit)="updateData()" [formGroup]="structureInformationForm">
+
+            <mat-form-field class="input">
+              <input matInput placeholder="Asr number" formControlName="asr_number">
+            </mat-form-field>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Faa" formControlName="faa">
+              </mat-form-field>
+              <mat-form-field class="input">
+                <input matInput placeholder="Fcc call sign" formControlName="fcc_call_sign">
+              </mat-form-field>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Owner" formControlName="owner">
+              </mat-form-field>
+              <mat-form-field class="input">
+                <input matInput placeholder="Manufacturer" formControlName="manufacturer">
+              </mat-form-field>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Drawing number" formControlName="drawing_number">
+              </mat-form-field>
+              <mat-form-field class="input">
+                <input matInput placeholder="Design number" formControlName="design_number">
+              </mat-form-field>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Year built" formControlName="year_built">
+              </mat-form-field>
+              <mat-select class="input" placeholder="Type" formControlName="type">
+                <mat-option *ngFor="let food of type" [value]="food.value">
+                  {{ food.viewValue }}
+                </mat-option>
+              </mat-select>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Height" formControlName="height">
+              </mat-form-field>
+              <mat-select class="input" placeholder="Leg type" formControlName="leg_type">
+                <mat-option *ngFor="let food of legtype" [value]="food.value">
+                  {{ food.viewValue }}
+                </mat-option>
+              </mat-select>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Sections" formControlName="sections">
+              </mat-form-field>
+              <mat-select class="input" placeholder="General condition" formControlName="general_condition">
+                <mat-option *ngFor="let food of generalcondition" [value]="food.value">
+                  {{ food.viewValue }}
+                </mat-option>
+              </mat-select>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Tower size" formControlName="tower_size">
+              </mat-form-field>
+              <mat-form-field class="input">
+                <input matInput placeholder="Top of taper" formControlName="top_of_taper">
+              </mat-form-field>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Leg size" formControlName="leg_size">
+              </mat-form-field>
+              <mat-form-field class="input">
+                <input matInput placeholder="Caisson height" formControlName="caisson_height">
+              </mat-form-field>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Latitude" formControlName="latitude">
+              </mat-form-field>
+              <mat-form-field class="input">
+                <input matInput placeholder="Longitude" formControlName="longitude">
+              </mat-form-field>
+            </div>
+
+            <div class="conte">
+              <mat-form-field class="input">
+                <input matInput placeholder="Ground elevation" formControlName="ground_elevation">
+              </mat-form-field>
+            </div>
+
+            <div class="actions-container">
+              <button mat-raised-button color="primary" type="submit" [disabled]="!structureInformationForm.valid">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Form data Finished-->
+
+      </mat-tab>
+      <mat-tab label="Grid list">
+        <app-grid-data [isEditable]="true" *ngIf="idStructureInformation !== undefined && idStructureInformation !== null" [idStructureInformation]="idStructureInformation"></app-grid-data>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

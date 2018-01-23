@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-card-content>
+    <div class="container" *ngIf="data">
+      <div>
+        <span class="negrilla">
+          Location type: </span>{{data.locationType}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Location description: </span>{{data.locationDescription}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Location fence: </span>{{data.locationFence ? 'Yes' : 'No'}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Fence type: </span>{{data.fenceType}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Fence size: </span>{{data.fenceSize}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Access: </span>{{data.accessType}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Building type: </span>{{data.buildingType}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Building owner if available: </span>{{data.buildingOwnerIfAvailable}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Genset: </span>{{data.genset ? 'Yes':'No'}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Fuel propone tank type: </span>{{data.fuePropaneTankType ? 'Yes':'No'}}
+      </div>
+      <div>
+        <span class="negrilla">
+          Propone fuel tank size: </span>{{data.propaneFuelTankSize}}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

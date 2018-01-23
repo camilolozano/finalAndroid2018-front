@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Form data">
+        <!-- Form data init-->
+        <div class="container" *ngIf="data">
+          <div><span class="negrilla">
+            Public Private wifi: </span>{{data.publicprivatewifidesc}}
+          </div>
+          <div><span class="negrilla">
+            Wifi: </span>{{data.wifi ? 'Yes':'No'}}
+          </div>
+          <div><span class="negrilla">
+            Phone: </span>{{data.phone ? 'Yes':'No'}}
+          </div>
+          <div><span class="negrilla">
+            Microwave: </span>{{data.microwave ? 'Yes':'No'}}
+          </div>
+          <div><span class="negrilla">
+            Fiber: </span>{{data.fiber ? 'Yes':'No'}}
+          </div>
+          <div><span class="negrilla">
+            Satellite: </span>{{data.satellite ? 'Yes':'No'}}
+          </div>
+          <div><span class="negrilla">
+            Cable: </span>{{data.cable ? 'Yes':'No'}}
+          </div>
+          <div><span class="negrilla">
+            Water: </span>{{data.water ? 'Yes':'No'}}
+          </div>
+        </div>
+        <!-- Form data Finished-->
+      </mat-tab>
+      <mat-tab label="Grid list">
+        <app-service-available-grid *ngIf="idServiceAvailable !== undefined && idServiceAvailable !== null" [idServiceAvailable]="idServiceAvailable" ></app-service-available-grid>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

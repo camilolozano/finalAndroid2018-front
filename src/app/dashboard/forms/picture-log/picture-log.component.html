@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-content>
+    <div class="container">
+      <div class="list">
+        <mat-list>
+          <mat-list-item *ngFor="let d of data" class="item" (click)="selectImage(d)">
+            <mat-icon matListIcon>photo</mat-icon>
+            <h3 matLine> {{d.description}} </h3>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="photo">
+        <img *ngIf="photoSelected !== undefined && photoSelected !== null" [src]="image" >
+        <div *ngIf="isEditable">
+          <mat-icon *ngIf="photoSelected !== undefined && photoSelected !== null" matListIcon (click)="getEditImage()">mode_edit</mat-icon>
+        </div>
+      </div>
+
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,96 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="Form data">
+        <!-- Form data init-->
+        <div class="container" *ngIf="data">
+          <div>
+            <span class="negrilla">
+              Asr number: </span>{{data.asr_number}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Faa: </span>{{data.faa}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Fcc call sign: </span>{{data.fcc_call_sign}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Owner: </span>{{data.owner}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Manufacturer: </span>{{data.manufacturer}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Drawing number: </span>{{data.drawingNumber}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Design number: </span>{{data.designNumber}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Year built: </span>{{data.yearBuild}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Type: </span>{{data.structureInformationType}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Height: </span>{{data.height}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Leg type: </span>{{data.legType}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Sections: </span>{{data.sections}}
+          </div>
+          <div>
+            <span class="negrilla">
+              General condition: </span>{{data.generalConditionType}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Tower size: </span>{{data.towerSize}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Top of taper: </span>{{data.topOfTaper}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Leg size: </span>{{data.legSize}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Caisson height: </span>{{data.caissonHeight}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Latitude: </span>{{data.latitude}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Longitude: </span>{{data.longitude}}
+          </div>
+          <div>
+            <span class="negrilla">
+              Ground elevation: </span>{{data.groundElevation}}
+          </div>
+        </div>
+        <!-- Form data Finished-->
+
+      </mat-tab>
+      <mat-tab label="Grid list">
+        <app-grid-data [isEditable]="false" *ngIf="idStructureInformation !== undefined && idStructureInformation !== null" [idStructureInformation]="idStructureInformation"></app-grid-data>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

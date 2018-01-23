@@ -1,0 +1,30 @@
+<mat-sidenav-container class="background">
+
+  <mat-sidenav #sidenav>
+    <app-sidenav-menu></app-sidenav-menu>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="menu">
+    <div class="menu-icon">
+      <button mat-icon-button (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <span class="toolbar-spacer">Americas</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logOut()">
+        <mat-icon>arrow_forward</mat-icon>Logout</button>
+      <button mat-menu-item (click)="security()">
+        <mat-icon>lock_open</mat-icon>Security</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <div class="full-container">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

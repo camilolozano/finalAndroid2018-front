@@ -1,0 +1,91 @@
+<mat-card>
+  <mat-card-content>
+      <div class="container" *ngIf="data">
+          <div>
+            <span class="negrilla">Surveyor: </span>  {{data.name}}
+          </div>
+          <div>
+            <span class="negrilla">Owner: </span>  {{data.owner}}
+          </div>
+          <div>
+            <span class="negrilla">Address: </span>  {{data.address}}
+          </div>
+          <div>
+            <span class="negrilla">City: </span>  {{data.city}}
+          </div>
+          <div>
+            <span class="negrilla">State: </span>  {{data.state}}
+          </div>
+          <div>
+            <span class="negrilla">Zip code: </span>  {{data.zip}}
+          </div>
+          <div>
+            <span class="negrilla">County: </span>  {{data.county}}
+          </div>
+          <div>
+            <span class="negrilla">Location type: </span>  {{data.locationtype}}
+          </div>
+          <div>
+            <span class="negrilla">Shale: </span>  {{data.shale ? 'Yes': 'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Sand and gravel: </span>  {{data.sendAndGravel ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Loam: </span>  {{data.loam ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Clay: </span>  {{data.clay ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Limestone: </span>  {{data.limestone ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Sandstone: </span>  {{data.sandstone ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Granite: </span>  {{data.granite ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Slate: </span>  {{data.slate ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Other: </span>  {{data.other ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">4x4 Required: </span>  {{data.required4x4 ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Solar power: </span>  {{data.solarPower ? 'Yes':   'No'}}
+          </div>
+          <div>
+            <span class="negrilla">Type access road: </span>  {{data.typeAccessRoad}}
+          </div>
+          <div>
+            <span class="negrilla">Access road: </span>  {{data.accessRoad}}
+          </div>
+          <div>
+            <span class="negrilla">Ac power available: </span>  {{data.acpoweravailable}}
+          </div>
+          <div>
+            <span class="negrilla">Size solar power: </span>  {{data.sizeSolarPower}}
+          </div>
+          <div>
+            <span class="negrilla">Point of contact: </span>   {{data.pointOfContact}}
+          </div>
+          <div>
+            <span class="negrilla">Phone: </span>   {{data.phone}}
+          </div>
+          <div>
+            <span class="negrilla">Latitude: </span>   {{data.latitude}}
+          </div>
+          <div>
+            <span class="negrilla">Longitude: </span>   {{data.longitude}}
+          </div>
+          <div>
+            <span class="negrilla">Ground elevation: </span>  {{data.groundElevation}}
+          </div>
+
+        </div>
+  </mat-card-content>
+</mat-card>

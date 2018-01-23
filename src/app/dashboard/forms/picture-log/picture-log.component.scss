@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  >div {
+    flex: .5;
+    // border: solid 1px black;
+    .item {
+      &:hover {
+        cursor: pointer;
+        background-color: #f5f5f5;
+      }
+    }
+  }
+  >div.photo {
+    img {
+      // border: solid 1px black;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

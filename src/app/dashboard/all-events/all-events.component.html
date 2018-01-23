@@ -1,0 +1,74 @@
+<mat-card class="card-container">
+  <mat-card-header>
+    <mat-card-title class="card-header">All Events
+      <mat-icon>view_column</mat-icon>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="download">
+        <i class="material-icons" matTooltip="Download" [matTooltipPosition]="position" (click)="download()">file_download</i>
+    </div>
+    <div class="example-container mat-elevation-z8">
+        <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+      <mat-table #table [dataSource]="dataSource">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="no.">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="surveyor">
+          <mat-header-cell *matHeaderCellDef> Surveyor </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.surveyor}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="date_create">
+          <mat-header-cell *matHeaderCellDef> Create </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.date_create}}</mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="directionToSite">
+          <mat-header-cell *matHeaderCellDef> Direction To Site </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.directionToSite}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="temperature">
+          <mat-header-cell *matHeaderCellDef> Temperature </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.temperature}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="watherConditions">
+          <mat-header-cell *matHeaderCellDef> Wather Conditions </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.watherConditions}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef>More info</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="openDialog(element.idEvent)">
+              <mat-icon class="align-menu-item menu-item-icon">add_circle_outline</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

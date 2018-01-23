@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-dialog-content>
+    <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="updateUserForm">
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email username" value="juan" formControlName="emailUsername">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="First name" formControlName="firstName">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Second Name" formControlName="secondName">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="firstLastName" formControlName="firstLastName">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Second Last Name" formControlName="secondLastName">
+      </mat-form-field>
+
+      <div class="select">
+        <mat-select class="align-select" placeholder="User type" class="full-width" formControlName="IDUserType">
+          <mat-option class="align-select" *ngFor="let food of userTypes" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </div>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Contact number" formControlName="contactNumber">
+      </mat-form-field>
+
+      <div class="select">
+        <mat-select class="align-select select" class="full-width" placeholder="Indentification type" formControlName="identificationType">
+          <mat-option class="align-select" *ngFor="let food of identificationTypes" [value]="food.value">
+            {{ food.viewValue }}
+          </mat-option>
+        </mat-select>
+      </div>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Identification card" formControlName="identificationCard">
+      </mat-form-field>
+
+      <ng-container matColumnDef="state">
+        <span class="state">User state</span>
+        <mat-checkbox color="primary" formControlName="state"></mat-checkbox>
+      </ng-container>
+
+      <div class="actions-container">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!updateUserForm.valid">
+          Save
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>

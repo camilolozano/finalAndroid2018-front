@@ -1,0 +1,23 @@
+<div>
+    <button mat-button (click)="returnPague()" color="primary">Return</button>
+  </div>
+  <mat-tab-group>
+    <mat-tab label="Survey information">
+      <app-osurvey-information-onlyreading [idEvent]="idEvent"></app-osurvey-information-onlyreading>
+    </mat-tab>
+    <mat-tab label="Site location information">
+      <app-asite-location-information-onlyreading [idEvent]="idEvent"></app-asite-location-information-onlyreading>
+    </mat-tab>
+    <mat-tab label="Structure information">
+      <app-structure-information-onlyreading [idEvent]="idEvent"></app-structure-information-onlyreading>
+    </mat-tab>
+    <mat-tab label="Compound">
+      <app-compound-onlyreading [idEvent]="idEvent"></app-compound-onlyreading>
+    </mat-tab>
+    <mat-tab label="Services availables">
+      <app-services-availables-onlyreading [idEvent]="idEvent"></app-services-availables-onlyreading>
+    </mat-tab>
+    <mat-tab label="Pictures log">
+      <app-picture-log [idEvent]="idEvent" [isEditable]="false"></app-picture-log>
+    </mat-tab>
+  </mat-tab-group>

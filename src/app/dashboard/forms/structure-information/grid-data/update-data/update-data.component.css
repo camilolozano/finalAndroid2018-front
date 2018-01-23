@@ -1,0 +1,24 @@
+.container {
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions-container{
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  padding-bottom: 25px;
+}
+
+.state {
+  font-size: 14px;
+  color: rgb(179, 179, 179);
+}

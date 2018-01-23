@@ -1,0 +1,78 @@
+<mat-card>
+  <mat-card-content>
+    <div class="container">
+
+      <form class="example-form" (ngSubmit)="updateData()" [formGroup]="compoundForm">
+
+        <div class="conte">
+          <mat-select class="input" placeholder="Location type" formControlName="location_type">
+            <mat-option *ngFor="let food of locationType" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Location description" formControlName="location_description">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <div class="input">
+            <mat-slide-toggle formControlName="location_fence">Location fence</mat-slide-toggle>
+          </div>
+
+          <mat-select class="input" placeholder="Fence type" formControlName="fence_type">
+            <mat-option *ngFor="let food of fencetype" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Fence size" formControlName="fence_size">
+          </mat-form-field>
+
+          <mat-select class="input" placeholder="Access" formControlName="access">
+            <mat-option *ngFor="let food of access" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <div class="conte">
+          <mat-select class="input" placeholder="Building type" formControlName="building_type">
+            <mat-option *ngFor="let food of buildingtype" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-form-field class="input">
+            <input matInput placeholder="Building owner if available" formControlName="building_owner_if_available">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <div class="input">
+            <mat-slide-toggle formControlName="genset">Genset</mat-slide-toggle>
+          </div>
+          <div class="input">
+            <mat-slide-toggle formControlName="fue_Propane_tank_type">Fuel propane tank type</mat-slide-toggle>
+          </div>
+        </div>
+        <!--  -->
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Propane fuel tank size" formControlName="propane_fuel_tank_size">
+          </mat-form-field>
+        </div>
+
+        <div class="actions-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!compoundForm.valid">
+            Save
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </mat-card-content>
+</mat-card>

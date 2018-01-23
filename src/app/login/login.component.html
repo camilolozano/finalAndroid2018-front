@@ -1,0 +1,45 @@
+<div class="flex-container backgroundImage">
+  <div class="card-access">
+    <mat-card>
+      <div class="posImage">
+        <img src="/assets/americas.png" alt="Americas comunications" class="logo">
+      </div>
+      <mat-card-content *ngIf="isLogin">
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+          <mat-form-field class="item-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="loginForm.invalid">
+              Please enter a
+              <strong>valid</strong> email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="item-full-width">
+            <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <div class="itemsb">
+            <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+            <button mat-button color="primary" (click)="recoverFlat()">Recover password</button>
+          </div>
+        </form>
+      </mat-card-content>
+
+      <mat-card-content *ngIf="!isLogin">
+        <form (ngSubmit)="recoverPassword()" [formGroup]="loginRecover" *ngIf="!isRetrievePassword">
+          <mat-form-field class="item-full-width">
+            <input matInput placeholder="Email">
+          </mat-form-field>
+          <div class="itemsb">
+            <button mat-raised-button color="primary" (click)="recoverPassword()">Recover password</button>
+            <button mat-button color="primary" (click)="loginFlat()">Login</button>
+          </div>
+        </form>
+      </mat-card-content>
+
+      <div class="nexus-container">
+        <span class="implementsBy">implemented by:</span>
+        <img class="logoNexus" src="/assets/allnexus.png" alt="Americas comunications">
+      </div>
+
+    </mat-card>
+  </div>
+</div>
