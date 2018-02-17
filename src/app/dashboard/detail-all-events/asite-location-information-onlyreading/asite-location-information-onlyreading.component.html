@@ -1,91 +1,152 @@
 <mat-card>
   <mat-card-content>
-      <div class="container" *ngIf="data">
-          <div>
-            <span class="negrilla">Surveyor: </span>  {{data.name}}
-          </div>
-          <div>
-            <span class="negrilla">Owner: </span>  {{data.owner}}
-          </div>
-          <div>
-            <span class="negrilla">Address: </span>  {{data.address}}
-          </div>
-          <div>
-            <span class="negrilla">City: </span>  {{data.city}}
-          </div>
-          <div>
-            <span class="negrilla">State: </span>  {{data.state}}
-          </div>
-          <div>
-            <span class="negrilla">Zip code: </span>  {{data.zip}}
-          </div>
-          <div>
-            <span class="negrilla">County: </span>  {{data.county}}
-          </div>
-          <div>
-            <span class="negrilla">Location type: </span>  {{data.locationtype}}
-          </div>
-          <div>
-            <span class="negrilla">Shale: </span>  {{data.shale ? 'Yes': 'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Sand and gravel: </span>  {{data.sendAndGravel ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Loam: </span>  {{data.loam ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Clay: </span>  {{data.clay ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Limestone: </span>  {{data.limestone ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Sandstone: </span>  {{data.sandstone ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Granite: </span>  {{data.granite ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Slate: </span>  {{data.slate ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Other: </span>  {{data.other ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">4x4 Required: </span>  {{data.required4x4 ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Solar power: </span>  {{data.solarPower ? 'Yes':   'No'}}
-          </div>
-          <div>
-            <span class="negrilla">Type access road: </span>  {{data.typeAccessRoad}}
-          </div>
-          <div>
-            <span class="negrilla">Access road: </span>  {{data.accessRoad}}
-          </div>
-          <div>
-            <span class="negrilla">Ac power available: </span>  {{data.acpoweravailable}}
-          </div>
-          <div>
-            <span class="negrilla">Size solar power: </span>  {{data.sizeSolarPower}}
-          </div>
-          <div>
-            <span class="negrilla">Point of contact: </span>   {{data.pointOfContact}}
-          </div>
-          <div>
-            <span class="negrilla">Phone: </span>   {{data.phone}}
-          </div>
-          <div>
-            <span class="negrilla">Latitude: </span>   {{data.latitude}}
-          </div>
-          <div>
-            <span class="negrilla">Longitude: </span>   {{data.longitude}}
-          </div>
-          <div>
-            <span class="negrilla">Ground elevation: </span>  {{data.groundElevation}}
-          </div>
+    <div class="container">
 
+      <form class="example-form" (ngSubmit)="updateData()" [formGroup]="aSiteLocationInformationForm">
+
+        <mat-form-field class="input">
+          <input matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Owner" formControlName="owner">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Address" formControlName="address">
+          </mat-form-field>
         </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="State" formControlName="state">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="City" formControlName="city">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Zip" formControlName="zip">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="County" formControlName="county">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field style="width: 100%; padding-left: 10px">
+            <mat-select placeholder="Location type" formControlName="location_type">
+              <mat-option *ngFor="let food of locationType" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+        <div class="tittle">
+          Soils type
+        </div>
+
+        <div class="toggle-container">
+          <div>
+            <mat-slide-toggle formControlName="loam">loam</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="sand_and_gravel">Sand and gravel</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="shale">Shale</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="clay">Clay</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="limestone">Limestone</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="sandstone">Sandstone</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="granite">Granite</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle formControlName="slate">Slate</mat-slide-toggle>
+          </div>
+          <div>
+            <mat-slide-toggle (change)="test($event)" formControlName="otherBoolean">Other</mat-slide-toggle>
+          </div>
+          <div *ngIf="checked">
+            <mat-form-field class="input">
+              <input matInput placeholder="Value" formControlName="other">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Access road" formControlName="access_road">
+          </mat-form-field>
+          <mat-form-field class="input">
+            <input matInput placeholder="Type access road" formControlName="type_of_access_road">
+          </mat-form-field>
+        </div>
+
+        <div class="toggle-container">
+          <div>
+            <mat-slide-toggle formControlName="_4x4_required">4x4 Required</mat-slide-toggle>
+          </div>
+        </div>
+
+        <div class="conte">
+          <mat-form-field style="width: 100%; padding-left: 10px">
+            <mat-select  placeholder="Ac power available" formControlName="ac_power_available">
+              <mat-option *ngFor="let food of AcPowerAvailable" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="toggle-container">
+          <div>
+            <mat-slide-toggle formControlName="solar_power">Solar power</mat-slide-toggle>
+          </div>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Size solar power" formControlName="size_solar_power">
+          </mat-form-field>
+          <mat-form-field class="input">
+            <input matInput placeholder="Point of contact" formControlName="point_of_contact">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Phone" formControlName="phone">
+          </mat-form-field>
+          <mat-form-field class="input">
+            <input matInput placeholder="Latitude" formControlName="latitude">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Longitude" formControlName="longitude">
+          </mat-form-field>
+          <mat-form-field class="input">
+            <input matInput placeholder="Ground elevation" formControlName="ground_elevation">
+          </mat-form-field>
+        </div>
+      </form>
+
+    </div>
   </mat-card-content>
 </mat-card>

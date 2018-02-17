@@ -1,9 +1,55 @@
+.mat-select {
+  padding-top: 9px;
+}
+
 .container {
-  padding-left: 3em;
-  >div {
-    margin-bottom: .5em;
-    .negrilla {
-      font-weight: bold;
-    } 
-  }
+  height: 100%;
+  width: 70%;
+  margin-left: 80px;
+  margin-top: 30px;
+}
+.full-width {
+  width: 100%;
+}
+.conte {
+  display: flex;
+}
+
+.input {
+  width: 50%;
+  margin: 10px;
+}
+
+.tag-input {
+  width: 100%;
+  margin: 10px;
+}
+
+.actions-container{
+  display: flex;
+  justify-content: center;
+}
+.card-container {
+  width: 90%;
+}
+.card-header {
+  font-size: 30px;
+}
+
+.toggle-container{
+  margin: 20px;
+}
+
+.mat-input-element:disabled {
+  color: black;
+}
+
+.toggle-text {
+  color: red;
+}
+
+.tittle{
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
 }

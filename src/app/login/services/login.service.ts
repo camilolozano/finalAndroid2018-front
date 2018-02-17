@@ -19,12 +19,14 @@ import 'rxjs/add/operator/toPromise';
 export class LoginService {
 
   private urlLogin: string;
+  private urlRecoverPass: string;
 
   constructor(
     private http: Http
   ) {
     const server = Config.server;
     this.urlLogin = `${server}/login`;
+    this.urlRecoverPass = `${server}/recover-pass`;
   }
 
 
@@ -34,6 +36,17 @@ export class LoginService {
     const options = new RequestOptions({headers: headers, withCredentials: true});
     return this.http
       .post(this.urlLogin, body, options)
+      .map(this.extractData)
+      .catch(this.extractData);
+  }
+
+  setRecoverPassWord(email: string): Observable<any> {
+    const url = `${this.urlRecoverPass}/${email}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({headers: headers, withCredentials: true});
+    return this.http
+      .get(url, options)
       .map(this.extractData)
       .catch(this.extractData);
   }

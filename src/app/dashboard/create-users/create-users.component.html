@@ -34,11 +34,13 @@
         </div>
 
         <div class="conte">
-          <mat-select class="input" placeholder="User type" formControlName="idUserType">
-            <mat-option *ngFor="let food of userTypes" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option>
-          </mat-select>
+          <mat-form-field style="width: 100%; padding-left: 10px">
+            <mat-select placeholder="User type" formControlName="idUserType">
+              <mat-option *ngFor="let food of userTypes" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
           <mat-form-field class="input">
             <input matInput placeholder="Contact number" formControlName="contactNumber">
@@ -46,12 +48,13 @@
         </div>
 
         <div class="conte">
-
-          <mat-select class="input" placeholder="Indentification type" formControlName="identificationType">
-            <mat-option *ngFor="let food of identificationTypes" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option>
-          </mat-select>
+          <mat-form-field style="width: 100%; padding-left: 10px">
+            <mat-select placeholder="Indentification type" formControlName="identificationType">
+              <mat-option *ngFor="let food of identificationTypes" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
           <mat-form-field class="input">
             <input matInput placeholder="Identification card" formControlName="identificationCard">

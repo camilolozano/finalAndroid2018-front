@@ -29,6 +29,14 @@ export class OsurveyInformationComponent implements OnInit {
        null,
         Validators.required,
       ],
+      identifier: [
+        null,
+        Validators.required,
+      ],
+      site_name: [
+        null,
+        Validators.required,
+      ],
       date_create: [
         {value: null, disabled: true},
         Validators.required,
@@ -69,6 +77,8 @@ export class OsurveyInformationComponent implements OnInit {
 
   setFormData(){
     this.oSurveyInformationForm.controls['surveyor'].setValue(this.data['surveyor']);
+    this.oSurveyInformationForm.controls['identifier'].setValue(this.data['identifier']);
+    this.oSurveyInformationForm.controls['site_name'].setValue(this.data['site_name']);
     this.oSurveyInformationForm.controls['date_create'].setValue(this.data['date_create']);
     this.oSurveyInformationForm.controls['weather_conditions'].setValue(this.data['watherConditions']);
     this.oSurveyInformationForm.controls['temperature'].setValue(this.data['temperature']);

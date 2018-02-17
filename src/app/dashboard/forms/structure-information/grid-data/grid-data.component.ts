@@ -6,6 +6,7 @@ import 'rxjs/add/observable/of';
 import { DataFormsService } from '../../service/data-forms.service';
 import { UpdateDataComponent } from './update-data/update-data.component';
 import { MatDialog, MatSnackBar, MatTableModule, MatPaginator, MatTableDataSource } from '@angular/material';
+import { DeleteRowComponent } from './delete-row/delete-row.component';
 
 @Component({
   selector: 'app-grid-data',
@@ -64,7 +65,8 @@ export class GridDataComponent implements OnInit, OnChanges {
         'qty',
         'azimuth',
         'lines',
-        'edit'
+        'edit',
+        'delete'
       ];
     } else {
       this.displayedColumns = [
@@ -105,6 +107,22 @@ export class GridDataComponent implements OnInit, OnChanges {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getDataGrid();
+    });
+  }
+
+  deleteElement(_element){
+    const dialogRef = this.dialog.open(DeleteRowComponent, {
+      width: '300px',
+      data: {
+        elements: _element
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === undefined) {
+      } else {
+        this.getDataGrid();
+      }
     });
   }
 

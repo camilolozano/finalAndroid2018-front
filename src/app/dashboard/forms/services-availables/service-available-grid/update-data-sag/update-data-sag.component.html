@@ -3,11 +3,13 @@
     <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="updateGridForm">
 
       <div class="select">
-        <mat-select class="align-select" placeholder="Cellular ServiceProvider" (change)="otherPro($event)" class="full-width" formControlName="cellularServiceProvider">
-          <mat-option class="align-select" *ngFor="let food of cellularServiceProviderType" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option>
-        </mat-select>
+        <mat-form-field style="width: 100%">
+          <mat-select class="align-select" placeholder="Cellular ServiceProvider" (change)="otherPro($event)" class="full-width" formControlName="cellularServiceProvider">
+            <mat-option class="align-select" *ngFor="let food of cellularServiceProviderType" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <mat-form-field class="full-width" *ngIf="other">
@@ -15,11 +17,13 @@
       </mat-form-field>
 
       <div class="select">
-        <mat-select class="align-select" placeholder="Technology Type" class="full-width" formControlName="technologyType">
-          <mat-option class="align-select" *ngFor="let food of technologyTypes" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option>
-        </mat-select>
+        <mat-form-field style="width: 100%">
+          <mat-select class="align-select" placeholder="Technology Type" class="full-width" formControlName="technologyType">
+            <mat-option class="align-select" *ngFor="let food of technologyTypes" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <div class="actions-container">

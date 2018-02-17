@@ -27,9 +27,27 @@
         </ng-container>
 
         <!-- Name Column -->
+        <ng-container matColumnDef="idevent">
+          <mat-header-cell *matHeaderCellDef> ID Event </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.idEvent}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
         <ng-container matColumnDef="surveyor">
           <mat-header-cell *matHeaderCellDef> Surveyor </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.surveyor}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="identifier">
+          <mat-header-cell *matHeaderCellDef> Identifier </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.identifier}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="site_name">
+          <mat-header-cell *matHeaderCellDef> Site name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.site_name}} </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
@@ -42,18 +60,6 @@
         <ng-container matColumnDef="directionToSite">
           <mat-header-cell *matHeaderCellDef> Direction To Site </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.directionToSite}} </mat-cell>
-        </ng-container>
-
-        <!-- Color Column -->
-        <ng-container matColumnDef="temperature">
-          <mat-header-cell *matHeaderCellDef> Temperature </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.temperature}} </mat-cell>
-        </ng-container>
-
-        <!-- Color Column -->
-        <ng-container matColumnDef="watherConditions">
-          <mat-header-cell *matHeaderCellDef> Wather Conditions </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.watherConditions}} </mat-cell>
         </ng-container>
 
         <!-- Color Column -->

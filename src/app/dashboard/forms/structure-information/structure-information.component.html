@@ -7,15 +7,15 @@
           <form class="example-form" (ngSubmit)="updateData()" [formGroup]="structureInformationForm">
 
             <mat-form-field class="input">
-              <input matInput placeholder="Asr number" formControlName="asr_number">
+              <input matInput placeholder="ASR Number" formControlName="asr_number">
             </mat-form-field>
 
             <div class="conte">
               <mat-form-field class="input">
-                <input matInput placeholder="Faa" formControlName="faa">
+                <input matInput placeholder="FAA" formControlName="faa">
               </mat-form-field>
               <mat-form-field class="input">
-                <input matInput placeholder="Fcc call sign" formControlName="fcc_call_sign">
+                <input matInput placeholder="FCC Call Sign" formControlName="fcc_call_sign">
               </mat-form-field>
             </div>
 
@@ -39,35 +39,46 @@
 
             <div class="conte">
               <mat-form-field class="input">
-                <input matInput placeholder="Year built" formControlName="year_built">
+                <input  #year_built maxlength="4" matInput placeholder="Year built" formControlName="year_built">
+                <mat-hint align="end">{{year_built.value.length}} / 4</mat-hint>
               </mat-form-field>
-              <mat-select class="input" placeholder="Type" formControlName="type">
-                <mat-option *ngFor="let food of type" [value]="food.value">
-                  {{ food.viewValue }}
-                </mat-option>
-              </mat-select>
+
+              <mat-form-field style="width: 100%; padding-left: 10px">
+                <mat-select placeholder="Type" formControlName="type">
+                  <mat-option *ngFor="let food of type" [value]="food.value">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
 
             <div class="conte">
               <mat-form-field class="input">
                 <input matInput placeholder="Height" formControlName="height">
               </mat-form-field>
-              <mat-select class="input" placeholder="Leg type" formControlName="leg_type">
-                <mat-option *ngFor="let food of legtype" [value]="food.value">
-                  {{ food.viewValue }}
-                </mat-option>
-              </mat-select>
+
+              <mat-form-field style="width: 100%; padding-left: 10px">
+                <mat-select placeholder="Leg type" formControlName="leg_type">
+                  <mat-option *ngFor="let food of legtype" [value]="food.value">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
             </div>
 
             <div class="conte">
               <mat-form-field class="input">
                 <input matInput placeholder="Sections" formControlName="sections">
               </mat-form-field>
-              <mat-select class="input" placeholder="General condition" formControlName="general_condition">
-                <mat-option *ngFor="let food of generalcondition" [value]="food.value">
-                  {{ food.viewValue }}
-                </mat-option>
-              </mat-select>
+
+              <mat-form-field style="width: 100%; padding-left: 10px">
+                <mat-select placeholder="General condition" formControlName="general_condition">
+                  <mat-option *ngFor="let food of generalcondition" [value]="food.value">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
 
             <div class="conte">

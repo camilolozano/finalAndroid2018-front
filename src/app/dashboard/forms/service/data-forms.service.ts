@@ -51,6 +51,7 @@ export class DataFormsService {
     private http: Http
   ) {
     const server = Config.server;
+    const serverImage = Config.serverImage;
     this.urlAsiteLocationInformation = `${server}/events/asite-location`;
     this.urlCompound = `${server}/events/compound`;
     this.urlOsurveyInformation = `${server}/events/osurvey-information`;
@@ -73,11 +74,7 @@ export class DataFormsService {
     this.urlPublicPrivateWifi = `${server}/tags/public-private-wifi`;
     this.urlAntenaType = `${server}/tags/antena-type`;
 
-    // -----------edit-upload----------
-
-    this.urlImage = `${server}/storage/pictures`;
-    // this.urlImage = `${server}/storage`;
-
+    this.urlImage = `${serverImage}`;
     this.urlCellularServiceProvider = `${server}/tags/cellular-service-type`;
     this.urlTechnologyType = `${server}/tags/technology-type`;
   }
@@ -150,7 +147,7 @@ export class DataFormsService {
 
   // grids data
   getStructureInformationGrid(idUser: number, idEvent: number): Observable<any>{
-    const url = `${this.urlStructureInformationGrid}/${idUser}&${idEvent}`;
+    const url = `${this.urlStructureInformationGrid}/${+idUser}&${idEvent}`;
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers, withCredentials: true });

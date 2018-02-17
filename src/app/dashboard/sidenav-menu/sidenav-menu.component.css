@@ -18,21 +18,21 @@
   width: 500px;
   height: 300px;
   border: 1px solid rgba(0, 0, 0, 0.5);
-}  
+}
 
 .example-sidenav-content {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
-}  
+}
 
 .align-menu-item {
   vertical-align: middle;
-}  
+}
 .example-sidenav {
   padding: 20px;
-}   
+}
 
 .menu-button {
   display: block;
@@ -40,20 +40,20 @@
   margin: 0;
   width: 100%;
   padding: 10px;
-}  
+}
 .menu-item-icon {
   padding-right: 10px;
-}  
+}
 
 .menu-item-icon:hover {
   color: #3f51ad;
-}  
+}
 
 .menu-button:hover {
   color: #3f51ad;
   cursor: pointer;
   font-weight: bold;
-}  
+}
 
 .example-card {
   max-width: 100%;
@@ -61,7 +61,7 @@
 }
 
 .example-header-image {
-  background-image: url('http://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url('/assets/avatar.png');
   background-size: cover;
 }
 

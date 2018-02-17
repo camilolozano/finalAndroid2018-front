@@ -7,6 +7,10 @@ import { HttpModule, Http } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
+// Prime ng Upload
+import { FileUploadModule } from 'primeng/fileupload';
+
+
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AuthGuardService } from './utils/auth-guard.service';
 import { BrowserXhr } from '@angular/http';
@@ -42,6 +46,10 @@ import { ServicesAvailablesOnlyreadingComponent } from './detail-all-events/serv
 import { EditAllEventsComponent } from './edit-all-events/edit-all-events.component';
 import { UpdateDataSagComponent } from './forms/services-availables/service-available-grid/update-data-sag/update-data-sag.component';
 import { UploadFileComponent } from './forms/picture-log/upload-file/upload-file.component';
+import { DeleteFileComponent } from './forms/picture-log/delete-file/delete-file.component';
+import { CreateFileComponent } from './forms/picture-log/create-file/create-file.component';
+import { DeleteRowComponent } from './forms/structure-information/grid-data/delete-row/delete-row.component';
+import { DeleteRowSaComponent } from './forms/services-availables/service-available-grid/delete-row-sa/delete-row-sa.component';
 
 @NgModule({
   imports: [
@@ -54,7 +62,8 @@ import { UploadFileComponent } from './forms/picture-log/upload-file/upload-file
     HttpModule,
     BrowserAnimationsModule,
     MaterialModuleModule,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule
   ],
   declarations: [
     DashboardComponent,
@@ -84,13 +93,21 @@ import { UploadFileComponent } from './forms/picture-log/upload-file/upload-file
     ServicesAvailablesOnlyreadingComponent,
     EditAllEventsComponent,
     UpdateDataSagComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    DeleteFileComponent,
+    CreateFileComponent,
+    DeleteRowComponent,
+    DeleteRowSaComponent
   ],
   entryComponents: [
     UpdateUserComponent,
     UpdateDataComponent,
     UpdateDataSagComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    DeleteFileComponent,
+    CreateFileComponent,
+    DeleteRowComponent,
+    DeleteRowSaComponent
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

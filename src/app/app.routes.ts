@@ -6,6 +6,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EnterPasswordComponent } from './enter-password/enter-password.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'enter-password',
     component: EnterPasswordComponent
+  },
+  {
+    path: 'recover-password',
+    component: RecoverPasswordComponent
   },
   {
     path: '**',

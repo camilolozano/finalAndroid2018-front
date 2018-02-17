@@ -31,11 +31,12 @@ export class MyEventsComponent implements OnInit {
 
   displayedColumns = [
     'no.',
+    'idevent',
     'surveyor',
-    'date_create',
+    'identifier',
+    'site_name',
     'directionToSite',
-    'temperature',
-    'watherConditions',
+    'date_create',
     'action'
   ];
 

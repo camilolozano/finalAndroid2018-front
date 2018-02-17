@@ -26,10 +26,10 @@
       <mat-card-content *ngIf="!isLogin">
         <form (ngSubmit)="recoverPassword()" [formGroup]="loginRecover" *ngIf="!isRetrievePassword">
           <mat-form-field class="item-full-width">
-            <input matInput placeholder="Email">
+            <input matInput placeholder="Email" formControlName="emailRecover">
           </mat-form-field>
           <div class="itemsb">
-            <button mat-raised-button color="primary" (click)="recoverPassword()">Recover password</button>
+            <button *ngIf="loadEmail" mat-raised-button color="primary" [disabled]="!loginRecover.valid">Recover password</button>
             <button mat-button color="primary" (click)="loginFlat()">Login</button>
           </div>
         </form>

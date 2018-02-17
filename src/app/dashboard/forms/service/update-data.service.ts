@@ -28,6 +28,10 @@ export class UpdateDataService {
   private urlServiceAvailableGrid: string;
   private urlServiceAvailableGridAdd: string;
   private urlpicture: string;
+  private urlPutStatepicture: string;
+  private urlPictureFileSave: string;
+  private urlDeleteStructureInformationRow: string;
+  private urlDeleteServiceAvailableRow: string;
 
   constructor(
     private http: Http,
@@ -38,13 +42,15 @@ export class UpdateDataService {
     this.urlStructureformation = `${server}/update-events/structure-information`;
     this.urlCompount = `${server}/update-events/compound`;
     this.urlServicesAvailable = `${server}/update-events/services-available`;
-
     this.urlStructureInformationGrid = `${server}/update-events/structure-information-grid`;
     this.urlStructureInformationGridAdd = `${server}/update-events/structure-information-grid-add`;
-
     this.urlServiceAvailableGrid = `${server}/update-events/service-available-grid`;
     this.urlServiceAvailableGridAdd = `${server}/update-events/service-available-grid-add`;
     this.urlpicture = `${server}/update-events/picture-update`;
+    this.urlPutStatepicture = `${server}/update-events/picture-update-state`;
+    this.urlPictureFileSave = `${server}/update-events/picture-file-save`;
+    this.urlDeleteStructureInformationRow = `${server}/update-events/delete-structureinfo-row`;
+    this.urlDeleteServiceAvailableRow = `${server}/update-events/delete-serviceavailable-row`;
   }
 
   putOsurveyInformation(idUser, idEvent, body): Observable<any> {
@@ -139,6 +145,42 @@ export class UpdateDataService {
 
   putPicture(idUser, body): Observable<any> {
     const url = `${this.urlpicture}/${idUser}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.put(url, body, options)
+      .map(this.extractData)
+  }
+
+  putStateImages(idUser: number, body:any): Observable<any> {
+    const url = `${this.urlPutStatepicture}/${idUser}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.put(url, body, options)
+      .map(this.extractData)
+  }
+
+  postPictureFileSave(idUser: number, body:any): Observable<any> {
+    const url = `${this.urlPictureFileSave}/${idUser}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.post(url, body, options)
+      .map(this.extractData)
+  }
+
+  postDeleteStructureInformationRow(idUser:number, body:any): Observable<any> {
+    const url = `${this.urlDeleteStructureInformationRow}/${idUser}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.put(url, body, options)
+      .map(this.extractData)
+  }
+
+  postDeleteServiceAvailableRow(idUser:number, body:any): Observable<any> {
+    const url = `${this.urlDeleteServiceAvailableRow}/${idUser}`;
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers, withCredentials: true });

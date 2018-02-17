@@ -29,3 +29,6 @@
 .card-header {
   font-size: 30px;
 }
+.mat-input-element:disabled {
+  color: black;
+}

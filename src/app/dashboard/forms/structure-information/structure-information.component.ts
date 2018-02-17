@@ -59,44 +59,37 @@ export class StructureInformationComponent implements OnInit {
         Validators.required,
       ],
       year_built: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       type: [
         null,
         Validators.required,
       ],
       height: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       leg_type: [
         null,
         Validators.required,
       ],
       sections: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       general_condition: [
         null,
         Validators.required,
       ],
       tower_size: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       top_of_taper: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       leg_size: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       caisson_height: [
-        null,
-        Validators.required,
+        null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
       ],
       latitude: [
         null,
@@ -214,7 +207,6 @@ export class StructureInformationComponent implements OnInit {
 
   updateData(){
     const body = this.structureInformationForm.value;
-    console.log(body);
     this.updateDataService.putStructureformation(this.idUser, +this.idEvent, body).subscribe(
       t => {
         if(t.success){

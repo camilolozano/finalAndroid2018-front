@@ -1,14 +1,14 @@
 <div class="container">
   <mat-dialog-content>
     <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="updateGridForm">
-
-
-      <div class="select">
-        <mat-select class="align-select" placeholder="Antena type" class="full-width" formControlName="antenatype">
-          <mat-option class="align-select" *ngFor="let food of antenaType" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option>
-        </mat-select>
+      <div class="full-width">
+        <mat-form-field style="width: 100%">
+          <mat-select placeholder="Antena type" formControlName="antenatype">
+            <mat-option *ngFor="let food of antenaType" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
       <mat-form-field class="full-width">

@@ -29,6 +29,11 @@
           <mat-cell *matCellDef="let element" class="tableWidthUT"> {{element.userType.description}}</mat-cell>
         </ng-container>
 
+        <!-- Weight Column -->
+        <ng-container matColumnDef="identificationCard">
+          <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Identification </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="tableWidthUT"> {{element.identificationCard}}</mat-cell>
+        </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="names">

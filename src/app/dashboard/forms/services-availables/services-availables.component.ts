@@ -115,8 +115,6 @@ export class ServicesAvailablesComponent implements OnInit {
   }
 
   setFormData() {
-    console.log(+this.data['publicprivatewifi'])
-    console.log(this.publicPrivatewifi)
 
     this.servicesAvailableForms.controls['wifi'].setValue(this.data['wifi']);
     this.servicesAvailableForms.controls['public_private_wifi'].setValue(this.data['publicprivatewifi']);

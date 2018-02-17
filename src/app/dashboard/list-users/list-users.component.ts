@@ -31,6 +31,7 @@ export class ListUsersComponent implements OnInit {
   displayedColumns = [
     'no.',
     'userType',
+    'identificationCard',
     'names',
     'emailUsername',
     'state',
@@ -71,7 +72,7 @@ export class ListUsersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.dataSource = new MatTableDataSource<User>(this.dataUsers);
+      this.getUsers();
     });
   }
 

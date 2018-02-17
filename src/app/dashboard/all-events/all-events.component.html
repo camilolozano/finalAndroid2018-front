@@ -6,28 +6,46 @@
   </mat-card-header>
   <mat-card-content>
     <div class="download">
-        <i class="material-icons" matTooltip="Download" [matTooltipPosition]="position" (click)="download()">file_download</i>
+      <i class="material-icons" matTooltip="Download" [matTooltipPosition]="position" (click)="download()">file_download</i>
     </div>
     <div class="example-container mat-elevation-z8">
-        <div class="example-header">
-            <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-            </mat-form-field>
-          </div>
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
       <mat-table #table [dataSource]="dataSource">
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
         <ng-container matColumnDef="no.">
-          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-          <mat-cell *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
+          <mat-header-cell class="tableWidthNo" *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell class="tableWidthNo" *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="idevent">
+          <mat-header-cell *matHeaderCellDef> ID Event </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.idEvent}} </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="surveyor">
           <mat-header-cell *matHeaderCellDef> Surveyor </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.surveyor}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="identifier">
+          <mat-header-cell *matHeaderCellDef> Identifier </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.identifier}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="site_name">
+          <mat-header-cell *matHeaderCellDef> Site name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.site_name}} </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
@@ -40,18 +58,6 @@
         <ng-container matColumnDef="directionToSite">
           <mat-header-cell *matHeaderCellDef> Direction To Site </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.directionToSite}} </mat-cell>
-        </ng-container>
-
-        <!-- Color Column -->
-        <ng-container matColumnDef="temperature">
-          <mat-header-cell *matHeaderCellDef> Temperature </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.temperature}} </mat-cell>
-        </ng-container>
-
-        <!-- Color Column -->
-        <ng-container matColumnDef="watherConditions">
-          <mat-header-cell *matHeaderCellDef> Wather Conditions </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.watherConditions}} </mat-cell>
         </ng-container>
 
         <!-- Color Column -->
@@ -68,7 +74,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
       <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
-        </mat-paginator>
+      </mat-paginator>
     </div>
   </mat-card-content>
 </mat-card>

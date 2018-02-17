@@ -34,21 +34,21 @@ export class UpdateDataComponent implements OnInit {
         ],
         height: [
           null,
-          Validators.compose([Validators.pattern('[0-9]+'), Validators.maxLength(30), Validators.required])
+          Validators.compose([Validators.pattern('[0-9,]+'), Validators.maxLength(30), Validators.required])
         ],
         legLocation: [
           null,
-          Validators.compose([Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(30), Validators.required])
+          Validators.compose([Validators.required, Validators.pattern('[0-9,]+'), Validators.maxLength(30), Validators.required])
         ],
         qty: [
           null,
-          Validators.compose([Validators.pattern('[0-9]+'), Validators.maxLength(30), Validators.required])
+          Validators.compose([Validators.pattern('[0-9,]+'), Validators.maxLength(30), Validators.required])
         ],
         azimuth: [
-          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9]+'), Validators.required])
+          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9,]+'), Validators.required])
         ],
         lines: [
-          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9]+'), Validators.required])
+          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9,]+'), Validators.required])
         ],
         idStructureInformation: [
           null, Validators.compose([Validators.required])
@@ -64,21 +64,21 @@ export class UpdateDataComponent implements OnInit {
         ],
         height: [
           null,
-          Validators.compose([Validators.pattern('[0-9]+'), Validators.maxLength(30), Validators.required])
+          Validators.compose([Validators.pattern('[0-9,]+'), Validators.maxLength(30), Validators.required])
         ],
         legLocation: [
           null,
-          Validators.compose([Validators.required, Validators.pattern('[0-9]+'), Validators.maxLength(30), Validators.required])
+          Validators.compose([Validators.required, Validators.pattern('[0-9,]+'), Validators.maxLength(30), Validators.required])
         ],
         qty: [
           null,
-          Validators.compose([Validators.pattern('[0-9]+'), Validators.maxLength(30), Validators.required])
+          Validators.compose([Validators.pattern('[0-9,]+'), Validators.maxLength(30), Validators.required])
         ],
         azimuth: [
-          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9]+'), Validators.required])
+          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9,]+'), Validators.required])
         ],
         lines: [
-          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9]+'), Validators.required])
+          null, Validators.compose([Validators.maxLength(30), Validators.pattern('[0-9,]+'), Validators.required])
         ],
         idstructureInformationGrid: [
           null, Validators.compose([Validators.required])

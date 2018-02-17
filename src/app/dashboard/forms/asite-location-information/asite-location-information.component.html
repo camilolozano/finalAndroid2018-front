@@ -5,7 +5,7 @@
       <form class="example-form" (ngSubmit)="updateData()" [formGroup]="aSiteLocationInformationForm">
 
         <mat-form-field class="input">
-          <input matInput placeholder="Surveyor" formControlName="name">
+          <input matInput placeholder="Name" formControlName="name">
         </mat-form-field>
 
         <div class="conte">
@@ -18,7 +18,7 @@
           </mat-form-field>
         </div>
 
-        <div class="conte">
+        <!-- <div class="conte">
           <mat-form-field class="input">
             <input matInput placeholder="State" formControlName="state">
           </mat-form-field>
@@ -26,7 +26,26 @@
           <mat-form-field class="input">
             <input matInput placeholder="City" formControlName="city">
           </mat-form-field>
-        </div>
+        </div> -->
+
+        <!-- test drp -->
+
+        <mat-form-field style="width: 100%; padding-left: 10px">
+          <mat-select placeholder="State" formControlName="state" (change)="selectCiti($event)">
+            <mat-option *ngFor="let food of states" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%; padding-left: 10px">
+          <mat-select placeholder="Cities" formControlName="city">
+            <mat-option *ngFor="let food of cities" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!--  -->
 
         <div class="conte">
           <mat-form-field class="input">
@@ -39,12 +58,17 @@
         </div>
 
         <div class="conte">
-          {{selectedLocationType}}
-          <mat-select class="tag-input" placeholder="Location type" formControlName="location_type">
-            <mat-option *ngFor="let food of locationType" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option>
-          </mat-select>
+          <mat-form-field style="width: 100%; padding-left: 10px">
+            <mat-select placeholder="Location type" formControlName="location_type">
+              <mat-option *ngFor="let food of locationType" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="tittle">
+          Soils type (Select all that apply)
         </div>
 
         <div class="toggle-container">
@@ -73,7 +97,7 @@
             <mat-slide-toggle formControlName="slate">Slate</mat-slide-toggle>
           </div>
           <div>
-            <mat-slide-toggle (change)="test($event)" formControlName="otherBoolean">Other</mat-slide-toggle>
+            <mat-slide-toggle (change)="test($event)" formControlName="otherBoolean">Value</mat-slide-toggle>
           </div>
           <div *ngIf="checked">
             <mat-form-field class="input">
@@ -98,11 +122,13 @@
         </div>
 
         <div class="conte">
-          <mat-select class="tag-input" placeholder="Ac power available" formControlName="ac_power_available">
-            <mat-option *ngFor="let food of AcPowerAvailable" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option>
-          </mat-select>
+          <mat-form-field style="width: 100%; padding-left: 10px">
+            <mat-select placeholder="Ac power available" formControlName="ac_power_available">
+              <mat-option *ngFor="let food of AcPowerAvailable" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
 
         <div class="toggle-container">

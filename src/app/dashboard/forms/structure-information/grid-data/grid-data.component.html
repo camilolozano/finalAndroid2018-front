@@ -1,11 +1,11 @@
 <mat-card class="card-container">
   <mat-card-content>
     <div class="example-container mat-elevation-z8">
-        <div class="example-header">
-            <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-            </mat-form-field>
-          </div>
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
       <mat-table #table [dataSource]="dataSource">
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -18,7 +18,7 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="idAntenaType">
-          <mat-header-cell *matHeaderCellDef> Antena type </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Antenna type </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.descantena}} </mat-cell>
         </ng-container>
 
@@ -61,15 +61,25 @@
           </mat-cell>
         </ng-container>
 
+        <!-- Color Column -->
+        <ng-container matColumnDef="delete" *ngIf="isEditable">
+          <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="deleteElement(element)">
+              <mat-icon class="align-menu-item menu-item-icon">delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
       <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
-        </mat-paginator>
+      </mat-paginator>
     </div>
     <div *ngIf="isEditable" class="button-add">
       <button color="primary" (click)="addElement()" mat-fab>
-        <mat-icon  aria-label="Example icon-button with a heart icon">playlist_add</mat-icon>
+        <mat-icon aria-label="Example icon-button with a heart icon">playlist_add</mat-icon>
       </button>
     </div>
   </mat-card-content>

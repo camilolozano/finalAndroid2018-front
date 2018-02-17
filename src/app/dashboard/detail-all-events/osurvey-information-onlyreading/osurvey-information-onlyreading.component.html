@@ -1,21 +1,45 @@
 <mat-card>
-  <mat-card-content>
-    <div class="container" *ngIf="data">
-      <div>
-        <span class="negrilla">Surveyor: </span> {{data.surveyor}}
+    <mat-card-content>
+      <div class="container">
+
+        <form class="example-form" (ngSubmit)="updateData()" [formGroup]="oSurveyInformationForm">
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Surveyor" formControlName="surveyor">
+          </mat-form-field>
+
+          <div class="conte">
+            <mat-form-field class="input">
+              <input matInput placeholder="Identifier" formControlName="identifier">
+            </mat-form-field>
+
+            <mat-form-field class="input">
+              <input matInput placeholder="Site name" formControlName="site_name">
+            </mat-form-field>
+          </div>
+
+          <div class="conte">
+            <mat-form-field class="input">
+              <input matInput placeholder="Date create" formControlName="date_create">
+            </mat-form-field>
+
+            <mat-form-field class="input">
+              <input matInput placeholder="Weather conditions" formControlName="weather_conditions">
+            </mat-form-field>
+          </div>
+
+          <div class="conte">
+            <mat-form-field class="input">
+              <input matInput placeholder="Temperature" formControlName="temperature">
+            </mat-form-field>
+
+            <mat-form-field class="input">
+              <input matInput placeholder="Directions to site" formControlName="directions_to_site">
+            </mat-form-field>
+          </div>
+
+        </form>
+
       </div>
-      <div>
-        <span class="negrilla">Date create: </span> {{data.date_create}}
-      </div>
-      <div>
-        <span class="negrilla">Weather conditions: </span> {{data.watherConditions}}
-      </div>
-      <div>
-        <span class="negrilla">Temperature: </span> {{data.temperature}}
-      </div>
-      <div>
-        <span class="negrilla">Directions to site: </span> {{data.directionToSite}}
-      </div>       
-    </div>
-  </mat-card-content>
-</mat-card>
+    </mat-card-content>
+  </mat-card>

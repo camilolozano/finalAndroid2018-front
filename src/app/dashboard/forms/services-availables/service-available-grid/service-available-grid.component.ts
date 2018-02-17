@@ -6,6 +6,7 @@ import { MatDialog, MatSnackBar, MatTableModule, MatPaginator, MatTableDataSourc
 import 'rxjs/add/observable/of';
 import { DataFormsService } from '../../service/data-forms.service';
 import { UpdateDataSagComponent } from './update-data-sag/update-data-sag.component';
+import { DeleteRowSaComponent } from './delete-row-sa/delete-row-sa.component';
 
 @Component({
   selector: 'app-service-available-grid',
@@ -19,7 +20,7 @@ export class ServiceAvailableGridComponent implements OnInit {
   @Input() isEditable: boolean;
   public dataSource: any;
   public data: any;
-  private idUser: string;
+  private idUser: number;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -31,12 +32,15 @@ export class ServiceAvailableGridComponent implements OnInit {
   displayedColumns = [];
 
   ngOnInit() {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    this.idUser = +userInfo.idSystemUser;
     if (this.isEditable) {
       this.displayedColumns = [
         'no.',
         'cellularServiceProvider',
         'technologyType',
-        'edit'
+        'edit',
+        'delete'
       ];
     } else {
       this.displayedColumns = [
@@ -49,7 +53,7 @@ export class ServiceAvailableGridComponent implements OnInit {
   }
 
   getDataGrid() {
-    this.dataFormsService.getServicesAvailablesGrid(+this.idUser, this.idServiceAvailable).subscribe(
+    this.dataFormsService.getServicesAvailablesGrid(this.idUser, this.idServiceAvailable).subscribe(
       t => {
         this.data = t;
         this.dataSource = new MatTableDataSource<gridDataModel>(this.data);
@@ -91,6 +95,23 @@ export class ServiceAvailableGridComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getDataGrid();
+    });
+  }
+
+
+  deleteElement(_element){
+    const dialogRef = this.dialog.open(DeleteRowSaComponent, {
+      width: '300px',
+      data: {
+        elements: _element
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === undefined) {
+      } else {
+        this.getDataGrid();
+      }
     });
   }
 }

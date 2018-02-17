@@ -14,11 +14,13 @@
             </div>
 
             <div class="toggle-container">
-              <mat-select class="tag-input" placeholder="Public Private wifi" formControlName="public_private_wifi">
-                <mat-option *ngFor="let food of publicPrivatewifi" [value]="food.value">
-                  {{ food.viewValue }}
-                </mat-option>
-              </mat-select>
+              <mat-form-field style="width: 100%; padding-left: 10px">
+                <mat-select class="tag-input" placeholder="Public Private wifi" formControlName="public_private_wifi">
+                  <mat-option *ngFor="let food of publicPrivatewifi" [value]="food.value">
+                    {{ food.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
 
             <div class="toggle-container">

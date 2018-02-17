@@ -19,3 +19,35 @@
     }
   }
 }
+.button-add {
+  text-align: right;
+}
+
+.iconoDel:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.iconoUpd:hover {
+  color: #3f51b5;
+  cursor: pointer;
+}
+
+.namePicture {
+  font-size: 25px;
+}
+
+.loadSpiner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spiner {
+  display: inline;
+}
+
+
