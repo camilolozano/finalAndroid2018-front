@@ -28,7 +28,20 @@ export class SidenavMenuComponent implements OnInit {
     if(parseInt(this.tipoUser) === 1) {
       this.menu = [
         {
-          name: 'Users',
+          name: 'Empresas',
+          url: '#',
+          params: '',
+          child: [
+            {
+              name: 'Crear empresa',
+              url: '/home/new-company',
+              params: '',
+              icon: 'view_carousel'
+            }
+          ]
+        },
+        {
+          name: 'Gestion de usuarios',
           url: '#',
           params: '',
           icon: 'people',
@@ -46,55 +59,30 @@ export class SidenavMenuComponent implements OnInit {
               icon: 'create'
             }
           ]
-        },
-        {
-          name: 'Events',
-          url: '#',
-          params: '',
-          child: [
-            {
-              name: 'My events',
-              url: '/home/my-events',
-              params: '',
-              icon: 'view_carousel'
-            },
-            {
-              name: 'Edit all events',
-              url: '/home/edit-all-events',
-              params: '',
-              icon: 'view_carousel'
-            },
-            {
-              name: 'All events',
-              url: '/home/all-events',
-              params: '',
-              icon: 'view_column'
-            }
-          ]
         }
       ];
     } else {
-      this.menu = [
-        {
-          name: 'Events',
-          url: '#',
-          params: '',
-          child: [
-            {
-              name: 'My events',
-              url: '/home/my-events',
-              params: '',
-              icon: 'view_carousel'
-            },
-            {
-              name: 'All events',
-              url: '/home/all-events',
-              params: '',
-              icon: 'view_column'
-            }
-          ]
-        }
-      ];
+      // this.menu = [
+      //   {
+      //     name: 'Events',
+      //     url: '#',
+      //     params: '',
+      //     child: [
+      //       {
+      //         name: 'My events',
+      //         url: '/home/my-events',
+      //         params: '',
+      //         icon: 'view_carousel'
+      //       },
+      //       {
+      //         name: 'All events',
+      //         url: '/home/all-events',
+      //         params: '',
+      //         icon: 'view_column'
+      //       }
+      //     ]
+      //   }
+      // ];
     }
   }
 

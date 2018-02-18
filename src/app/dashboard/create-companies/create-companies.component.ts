@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CreateUsersService } from './shared/create-users.service';
+import { CreateUsersService } from '../create-users/shared/create-users.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-create-users',
-  templateUrl: './create-users.component.html',
-  styleUrls: ['./create-users.component.css'],
+  selector: 'app-create-companies',
+  templateUrl: './create-companies.component.html',
+  styleUrls: ['./create-companies.component.css'],
   providers: [CreateUsersService]
 })
-export class CreateUsersComponent implements OnInit {
+export class CreateCompaniesComponent implements OnInit {
 
   public createUserForm: FormGroup;
   public enableForm: Boolean;

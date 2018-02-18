@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   private idUser: string;
+  public companyName: string;
 
   constructor(
     private logOutService: LogOutService,
@@ -19,6 +20,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    this.companyName = userInfo.nameBusiness;
     this.idUser = userInfo.idSystemUser;
   }
 
