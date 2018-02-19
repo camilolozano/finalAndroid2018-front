@@ -44,7 +44,6 @@ export class DashboardComponent implements OnInit {
   getConuntOfferts() {
     this.logOutService.getCountOffersCompanyCount(this.idUser, this.idCompany).subscribe(
       data => {
-        console.log(data);
         if (data.success) {
           this.alerts = data.data;
         }
