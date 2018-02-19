@@ -28,6 +28,10 @@ import { AllEventsComponent } from './all-events/all-events.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
 import { CreateCompaniesComponent } from './create-companies/create-companies.component';
 
+// google maps
+import { AgmCoreModule } from '@agm/core';
+import { GoogleMapComponent } from './google-map/google-map.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +44,10 @@ import { CreateCompaniesComponent } from './create-companies/create-companies.co
     BrowserAnimationsModule,
     MaterialModuleModule,
     HttpClientModule,
-    FileUploadModule
+    FileUploadModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCttDRK3LlN7nK5t0WKkdygE9ht9uX-ggE'
+    })
   ],
   declarations: [
     DashboardComponent,
@@ -52,6 +59,7 @@ import { CreateCompaniesComponent } from './create-companies/create-companies.co
     AllEventsComponent,
     UpdatePasswordComponent,
     CreateCompaniesComponent,
+    GoogleMapComponent,
   ],
   entryComponents: [
     UpdateUserComponent,

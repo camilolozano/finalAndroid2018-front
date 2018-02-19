@@ -19,12 +19,25 @@ import 'rxjs/add/operator/toPromise';
 export class LogOutService {
 
   private urlLogOut: string;
+  private urlCountOffersCompanyCount: string;
 
   constructor(
     private http: Http
   ) {
     const server = Config.server;
     this.urlLogOut = `${server}/log-out`;
+    this.urlCountOffersCompanyCount = `${server}/offers/offers-company-count`;
+  }
+
+  getCountOffersCompanyCount(idUser, idCompany): Observable<any> {
+    const url = `${this.urlCountOffersCompanyCount}/${idUser}&${idCompany}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http
+      .get(url, options)
+      .map(this.extractData)
+      .catch(this.extractData);
   }
 
   setlogOut(idUser: string): Observable<any> {

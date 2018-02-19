@@ -5,6 +5,11 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
+
+    <div class="map">
+      <app-google-map></app-google-map>
+    </div>
+
     <div class="container">
 
       <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="createUserForm">
@@ -68,7 +73,7 @@
             </button>
           </div>
           <div *ngIf="loadSpiner">
-              <mat-spinner class="spiner"></mat-spinner>
+            <mat-spinner class="spiner"></mat-spinner>
           </div>
         </div>
       </form>
