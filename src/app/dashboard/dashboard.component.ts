@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { LogOutService } from './services/log-out.service';
 import { Router } from '@angular/router';
 import { NewOffertService } from './sokets-services/new-offert/new-offert.service';
@@ -9,7 +9,7 @@ import { NewOffertService } from './sokets-services/new-offert/new-offert.servic
   styleUrls: ['./dashboard.component.css'],
   providers: [LogOutService, NewOffertService]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnChanges {
 
   private idUser: string;
   public companyName: string;
@@ -21,6 +21,10 @@ export class DashboardComponent implements OnInit {
     private newOffertService: NewOffertService,
     private router: Router
   ) { }
+
+  ngOnChanges() {
+    this.getConuntOfferts();
+  }
 
   ngOnInit() {
     this.alerts = 0;
@@ -53,10 +57,13 @@ export class DashboardComponent implements OnInit {
 
   getOferts() {
     this.newOffertService.getTurnoSocket().subscribe(
-      data => {
-        if (+this.idCompany === +data) {
-          this.getConuntOfferts();
-        }
+      t => {
+        const companies = t.payload;
+        companies.map((e, i) => {
+          if (+this.idCompany === +e.idCompany) {
+            this.getConuntOfferts();
+          }
+        });
       }
     );
   }

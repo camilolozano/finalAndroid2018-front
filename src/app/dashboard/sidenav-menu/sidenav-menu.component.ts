@@ -62,27 +62,21 @@ export class SidenavMenuComponent implements OnInit {
         }
       ];
     } else {
-      // this.menu = [
-      //   {
-      //     name: 'Events',
-      //     url: '#',
-      //     params: '',
-      //     child: [
-      //       {
-      //         name: 'My events',
-      //         url: '/home/my-events',
-      //         params: '',
-      //         icon: 'view_carousel'
-      //       },
-      //       {
-      //         name: 'All events',
-      //         url: '/home/all-events',
-      //         params: '',
-      //         icon: 'view_column'
-      //       }
-      //     ]
-      //   }
-      // ];
+      this.menu = [
+        {
+          name: 'Solicitudes',
+          url: '#',
+          params: '',
+          child: [
+            {
+              name: 'Mis solicitudes',
+              url: '/home/list-solicitations',
+              params: '',
+              icon: 'view_carousel'
+            },
+          ]
+        }
+      ];
     }
   }
 

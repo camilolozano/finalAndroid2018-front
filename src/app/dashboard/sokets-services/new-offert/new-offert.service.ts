@@ -30,7 +30,7 @@ export class NewOffertService {
 
   getTurnoSocket(): Observable<any> {
     const observable = new Observable(observer => {
-      this.socket.on('notification-order-web', (data) => {
+      this.socket.on('new-request', (data) => {
         observer.next(data);
       });
       return () => {

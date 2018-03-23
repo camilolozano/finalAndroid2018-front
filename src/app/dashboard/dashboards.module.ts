@@ -31,6 +31,8 @@ import { CreateCompaniesComponent } from './create-companies/create-companies.co
 // google maps
 import { AgmCoreModule } from '@agm/core';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { ListOffersCompaniesComponent } from './list-offers-companies/list-offers-companies.component';
+import { ListsolicitationsComponent } from './listsolicitations/listsolicitations.component';
 
 @NgModule({
   imports: [
@@ -60,6 +62,8 @@ import { GoogleMapComponent } from './google-map/google-map.component';
     UpdatePasswordComponent,
     CreateCompaniesComponent,
     GoogleMapComponent,
+    ListOffersCompaniesComponent,
+    ListsolicitationsComponent,
   ],
   entryComponents: [
     UpdateUserComponent,

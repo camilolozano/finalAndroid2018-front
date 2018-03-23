@@ -12,7 +12,16 @@
     </div>
 
     <span class="toolbar-spacer">{{companyName}}</span>
-    <button mat-mini-fab color="accent">{{alerts}}</button>
+
+    <button mat-mini-fab [matMenuTriggerFor]="menuA" color="accent">{{alerts}}</button>
+    <!-- Alertar de nuevo pedido -->
+    <mat-menu #menuA="matMenu">
+      <button mat-menu-item>
+        <mat-icon>add_alert</mat-icon>
+        <span>Redial</span>
+      </button>
+    </mat-menu>
+    <!-- ///// -->
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>

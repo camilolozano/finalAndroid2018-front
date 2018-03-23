@@ -20,6 +20,9 @@ export class LogOutService {
 
   private urlLogOut: string;
   private urlCountOffersCompanyCount: string;
+  private urlDescriptionOffersCompanyCount: string;
+  private urlUpdateStateOffer: string;
+  private urlAppyStateOffer: string;
 
   constructor(
     private http: Http
@@ -27,10 +30,24 @@ export class LogOutService {
     const server = Config.server;
     this.urlLogOut = `${server}/log-out`;
     this.urlCountOffersCompanyCount = `${server}/offers/offers-company-count`;
+    this.urlDescriptionOffersCompanyCount = `${server}/solicitor-offers`;
+    this.urlUpdateStateOffer = `${server}/solicitor-offers/cancel`;
+    this.urlAppyStateOffer = `${server}/solicitor-offers/apply`;
   }
 
   getCountOffersCompanyCount(idUser, idCompany): Observable<any> {
     const url = `${this.urlCountOffersCompanyCount}/${idUser}&${idCompany}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http
+      .get(url, options)
+      .map(this.extractData)
+      .catch(this.extractData);
+  }
+
+  getDescriptionOffers(idUser, idCompany) {
+    const url = `${this.urlDescriptionOffersCompanyCount}/${idUser}&${idCompany}`;
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers, withCredentials: true });
@@ -49,6 +66,26 @@ export class LogOutService {
       .put(url, options)
       .map(this.extractData)
       .catch(this.extractData);
+  }
+
+  putCancelOffer(idUser, idCompany, body): Observable<any> {
+    const url = `${this.urlUpdateStateOffer}/${idUser}&${idCompany}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.put(url, body, options)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
+  }
+
+  postApplyOffer(idUser, idCompany, body): Observable<any> {
+    const url = `${this.urlAppyStateOffer}/${idUser}&${idCompany}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http.post(url, body, options)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
   }
 
   private handleErrorObservable(error: any) {

@@ -12,6 +12,8 @@ import { CreateUsersComponent } from './create-users/create-users.component';
 import { ListUsersComponent } from './list-users/list-users.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
 import { CreateCompaniesComponent } from './create-companies/create-companies.component';
+import { ListOffersCompaniesComponent } from './list-offers-companies/list-offers-companies.component';
+import { ListsolicitationsComponent } from './listsolicitations/listsolicitations.component';
 
 export const dashboardRoutes: Routes = [
   {
@@ -39,6 +41,16 @@ export const dashboardRoutes: Routes = [
         component: CreateCompaniesComponent,
         canActivate: [AuthGuardService]
       },
+      {
+        path: 'list-offers',
+        component: ListOffersCompaniesComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'list-solicitations',
+        component: ListsolicitationsComponent,
+        canActivate: [AuthGuardService]
+      }
     ],
   }
 ];
