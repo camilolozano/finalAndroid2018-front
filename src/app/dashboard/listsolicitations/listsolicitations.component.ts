@@ -56,7 +56,6 @@ export class ListsolicitationsComponent implements OnInit {
   }
 
   selectOffer(e: any) {
-    console.log(e);
     const body = {
       document: e.document
     };
