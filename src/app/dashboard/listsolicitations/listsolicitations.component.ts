@@ -1,10 +1,20 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { MatDialog, MatSnackBar, MatTableModule, MatPaginator, MatTableDataSource } from '@angular/material';
+import {
+  MatSnackBar,
+  MatTableModule,
+  MatPaginator,
+  MatTableDataSource,
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA } from '@angular/material';
+
+
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 import { LogOutService } from '../services/log-out.service';
 import 'rxjs/add/observable/of';
 import { NewOffertService } from '../sokets-services/new-offert/new-offert.service';
+import { ChatComponent } from '../chat/chat.component';
 
 @Component({
   selector: 'app-listsolicitations',
@@ -25,7 +35,8 @@ export class ListsolicitationsComponent implements OnInit {
   constructor(
     private logOutService: LogOutService,
     public snackBar: MatSnackBar,
-    private newOffertService: NewOffertService
+    private newOffertService: NewOffertService,
+    public dialog: MatDialog
   ) { }
 
   displayedColumns = [
@@ -33,7 +44,8 @@ export class ListsolicitationsComponent implements OnInit {
     'search',
     'client',
     'select-offer',
-    'cancel-offer'
+    'cancel-offer',
+    'chat-offer'
   ];
 
   ngOnInit() {
@@ -57,7 +69,8 @@ export class ListsolicitationsComponent implements OnInit {
 
   selectOffer(e: any) {
     const body = {
-      document: e.document
+      document: e.document,
+      idclient: e.idclient
     };
     this.logOutService.postApplyOffer(this.idUser, this.idCompany, body).subscribe( t => {
       if (t.success) {
@@ -103,4 +116,17 @@ export class ListsolicitationsComponent implements OnInit {
       }
     );
   }
+
+  openChat(): void {
+    const dialogRef = this.dialog.open(ChatComponent, {
+      width: '600px',
+      height:  '400px',
+      data: { name: 'casas' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 }

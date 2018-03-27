@@ -55,6 +55,18 @@
           </mat-cell>
         </ng-container>
 
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="chat-offer">
+          <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Chat </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="tableWidthUT">
+            <button mat-raised-button  (click)="openChat(element)">
+              Chat
+              <mat-icon>chat</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>

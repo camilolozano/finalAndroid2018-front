@@ -1,0 +1,18 @@
+<div class="full-container">
+  <div class="container-txt">
+
+  </div>
+  <form class="send-text" (ngSubmit)="onSubmit()" [formGroup]="messageForm">
+    <div class="text-emmit">
+      <mat-form-field (ngSubmit)="onSubmit()" [formGroup]="messageForm" class="example-full-width">
+        <input matInput placeholder="Ingrese el texto" formControlName="msg">
+      </mat-form-field>
+    </div>
+    <div class="send-button">
+      <button type="submit" [disabled]="!messageForm.valid" mat-raised-button color="primary">
+        Enviar
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </form>
+</div>

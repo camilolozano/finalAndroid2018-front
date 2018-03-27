@@ -33,6 +33,7 @@ import { AgmCoreModule } from '@agm/core';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { ListOffersCompaniesComponent } from './list-offers-companies/list-offers-companies.component';
 import { ListsolicitationsComponent } from './listsolicitations/listsolicitations.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   imports: [
@@ -64,9 +65,11 @@ import { ListsolicitationsComponent } from './listsolicitations/listsolicitation
     GoogleMapComponent,
     ListOffersCompaniesComponent,
     ListsolicitationsComponent,
+    ChatComponent,
   ],
   entryComponents: [
     UpdateUserComponent,
+    ChatComponent
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
