@@ -10,18 +10,24 @@ import {
 } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { ChatService } from './services/chat.service';
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.css'],
+  providers: [ChatService]
 })
 export class ChatComponent implements OnInit {
   public messageForm: FormGroup;
+  private idUser: number;
+  private idCompany: number;
 
   constructor(
     public dialogRef: MatDialogRef<ChatComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private chatService: ChatService
   ) {
     this.messageForm = this.fb.group({
       msg: [
@@ -35,9 +41,22 @@ export class ChatComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    this.idUser = userInfo.idSystemUser;
+    this.idCompany = userInfo.idCompany;
+  }
   onSubmit() {
-    console.log(this.messageForm.value);
+    const doc  = this.data.data['document'];
+    const body = {
+      idDocument: doc,
+      message: this.messageForm.value['msg'],
+      idCompany: this.idCompany
+    };
+    this.chatService.postUrlSendMsg(this.idUser, body).subscribe(
+      t => {
+        console.log(t);
+      }
+    );
   }
 }

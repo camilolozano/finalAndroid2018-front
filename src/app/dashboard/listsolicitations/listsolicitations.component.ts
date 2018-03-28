@@ -117,11 +117,11 @@ export class ListsolicitationsComponent implements OnInit {
     );
   }
 
-  openChat(): void {
+  openChat(e: any): void {
     const dialogRef = this.dialog.open(ChatComponent, {
       width: '600px',
       height:  '400px',
-      data: { name: 'casas' }
+      data: { data: e }
     });
 
     dialogRef.afterClosed().subscribe(result => {
