@@ -19,12 +19,14 @@ import 'rxjs/add/operator/toPromise';
 export class ChatService {
 
   private urlSendMsg: string;
+  private urlTalk: string;
 
   constructor(
     private http: Http
   ) {
     const server = Config.server;
     this.urlSendMsg = `${server}/chat-web`;
+    this.urlTalk = `${server}/chat-web/talk`;
   }
 
   postUrlSendMsg(idUser: number, body: any) {
@@ -34,6 +36,17 @@ export class ChatService {
     const options = new RequestOptions({ headers: headers, withCredentials: true });
     return this.http
       .post(url, body, options)
+      .map(this.extractData)
+      .catch(this.extractData);
+  }
+
+  getTalk(idUser: number, idDoc: number) {
+    const url = `${this.urlTalk}/${idUser}&${idDoc}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({ headers: headers, withCredentials: true });
+    return this.http
+      .get(url, options)
       .map(this.extractData)
       .catch(this.extractData);
   }

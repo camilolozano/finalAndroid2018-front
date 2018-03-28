@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnChanges } from '@angular/core';
 import {
   MatSnackBar,
   MatTableModule,
@@ -18,10 +18,11 @@ import { ChatService } from './services/chat.service';
   styleUrls: ['./chat.component.css'],
   providers: [ChatService]
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnChanges {
   public messageForm: FormGroup;
   private idUser: number;
   private idCompany: number;
+  public msg: string;
 
   constructor(
     public dialogRef: MatDialogRef<ChatComponent>,
@@ -32,7 +33,7 @@ export class ChatComponent implements OnInit {
     this.messageForm = this.fb.group({
       msg: [
         null,
-        Validators.compose([Validators.pattern('[A-Za-zñÑáéíóúÁÉÍÓÚüÜ ]+'), Validators.maxLength(25)])
+        Validators.compose([Validators.pattern('[A-Za-zñÑáéíóúÁÉÍÓÚüÜ.,:-_()$%&!?¿0#-9 ]+'), Validators.maxLength(25)])
       ],
     });
   }
@@ -40,23 +41,40 @@ export class ChatComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  ngOnChanges() {
+    this.messages();
+  }
 
   ngOnInit() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     this.idUser = userInfo.idSystemUser;
     this.idCompany = userInfo.idCompany;
+    this.messages();
   }
-  onSubmit() {
-    const doc  = this.data.data['document'];
-    const body = {
-      idDocument: doc,
-      message: this.messageForm.value['msg'],
-      idCompany: this.idCompany
-    };
-    this.chatService.postUrlSendMsg(this.idUser, body).subscribe(
+
+
+  messages() {
+    this.chatService.getTalk(this.idUser, this.data.data['document']).subscribe(
       t => {
-        console.log(t);
+        this.msg = t.data;
       }
     );
+  }
+
+  onSubmit() {
+    if (this.messageForm.value['msg'].trim() === '') {
+      console.log('no');
+    } else {
+      const doc  = this.data.data['document'];
+      const body = {
+        idDocument: doc,
+        message: this.messageForm.value['msg'],
+        idCompany: this.idCompany
+      };
+      this.chatService.postUrlSendMsg(this.idUser, body).subscribe(
+      t => {
+        this.messages();
+      }, err => console.log(err), () => this.messageForm.reset());
+    }
   }
 }

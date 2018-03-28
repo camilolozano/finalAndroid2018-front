@@ -8,6 +8,9 @@
 .container-txt {
   flex-grow: 6;
   border: 1px solid gainsboro;
+  padding: 10px;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .send-text {
@@ -27,4 +30,23 @@
 
 .example-full-width {
   width: 100%;
+}
+
+.card-msg {
+  margin-bottom: 15px;
+}
+
+.name {
+  font-size: 10px;
+  display: block;
+}
+
+.msg {
+  font-size: 20px;
+  display: block;
+}
+
+.user {
+  text-align: right;
+
 }

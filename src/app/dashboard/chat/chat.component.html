@@ -1,6 +1,17 @@
 <div class="full-container">
   <div class="container-txt">
-
+    <div class="card-msg" *ngFor="let v of msg">
+      <mat-card>
+        <div *ngIf="v.flag === 'usuario'" class="user">
+          <span class="msg">{{v.message}}</span>
+          <span class="name">{{v.quien}}</span>
+        </div>
+        <div *ngIf="v.flag === 'empresa'" >
+          <span class="msg">{{v.message}}</span>
+          <span class="name">{{v.quien}}</span>
+        </div>
+      </mat-card>
+    </div>
   </div>
   <form class="send-text" (ngSubmit)="onSubmit()" [formGroup]="messageForm">
     <div class="text-emmit">
