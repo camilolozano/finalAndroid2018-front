@@ -69,7 +69,7 @@ export class ListsolicitationsComponent implements OnInit {
 
   selectOffer(e: any) {
     const body = {
-      document: e.document,
+      document: e.master,
       idclient: e.idclient
     };
     this.logOutService.postApplyOffer(this.idUser, this.idCompany, body).subscribe( t => {
