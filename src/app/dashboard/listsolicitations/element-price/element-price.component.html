@@ -1,0 +1,8 @@
+<div class="container">
+  <mat-form-field class="container">
+    <input matInput type="number" (input)="activateButtonSend($event.target.value)" [(ngModel)]="price" placeholder="Agrege el precio para el producto solicitado">
+  </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button [disabled]="validateSendInput === null" (click)="agregar()">Agregar</button>
+</div>

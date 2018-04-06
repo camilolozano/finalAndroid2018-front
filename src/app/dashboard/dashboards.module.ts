@@ -34,6 +34,7 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { ListOffersCompaniesComponent } from './list-offers-companies/list-offers-companies.component';
 import { ListsolicitationsComponent } from './listsolicitations/listsolicitations.component';
 import { ChatComponent } from './chat/chat.component';
+import { ElementPriceComponent } from './listsolicitations/element-price/element-price.component';
 
 @NgModule({
   imports: [
@@ -66,10 +67,12 @@ import { ChatComponent } from './chat/chat.component';
     ListOffersCompaniesComponent,
     ListsolicitationsComponent,
     ChatComponent,
+    ElementPriceComponent,
   ],
   entryComponents: [
     UpdateUserComponent,
-    ChatComponent
+    ChatComponent,
+    ElementPriceComponent
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

@@ -8,13 +8,13 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA } from '@angular/material';
 
-
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 import { LogOutService } from '../services/log-out.service';
 import 'rxjs/add/observable/of';
 import { NewOffertService } from '../sokets-services/new-offert/new-offert.service';
 import { ChatComponent } from '../chat/chat.component';
+import { ElementPriceComponent } from './element-price/element-price.component';
 
 @Component({
   selector: 'app-listsolicitations',
@@ -62,27 +62,24 @@ export class ListsolicitationsComponent implements OnInit {
     this.logOutService.getDescriptionOffers(this.idUser, this.idCompany).subscribe( t => {
       this.data = t.data;
       this.dataSource = new MatTableDataSource<any>(this.data);
+      console.log(this.data);
     }, () => console.log('err'), () => {
       this.dataSource.paginator = this.paginator;
     });
   }
 
-  selectOffer(e: any) {
+  addPrice(e: any) {
     const body = {
       document: e.master,
       idclient: e.idclient
     };
-    this.logOutService.postApplyOffer(this.idUser, this.idCompany, body).subscribe( t => {
-      if (t.success) {
-        this.getDescriptionOffers();
-        this.snackBar.open(t.msg, 'Successful', {
-          duration: 5000,
-        });
-      } else {
-        this.snackBar.open(t.msg, 'Error', {
-          duration: 5000,
-        });
-      }
+    const dialogRef = this.dialog.open(ElementPriceComponent, {
+      width: '350px',
+      data: { data: body }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getDescriptionOffers();
     });
   }
 
