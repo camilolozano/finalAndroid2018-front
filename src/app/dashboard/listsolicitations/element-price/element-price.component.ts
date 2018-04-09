@@ -50,14 +50,13 @@ export class ElementPriceComponent implements OnInit {
     const body = {
       document: this.data.data.document,
       idclient: this.data.data.idclient,
+      flagdocumet: this.data.data.flagdocumet,
       price: this.price
     };
-    console.log(body);
     this.logOutService
       .postApplyOffer(this.idUser, this.idCompany, body)
       .subscribe(
         t => {
-          console.log(t);
           if (t.success) {
             this.snackBar.open(t.msg, 'Successful', {
               duration: 5000

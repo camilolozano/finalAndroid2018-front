@@ -41,6 +41,7 @@ export class ListsolicitationsComponent implements OnInit {
 
   displayedColumns = [
     'no.',
+    'typeShop',
     'search',
     'client',
     'select-offer',
@@ -61,8 +62,8 @@ export class ListsolicitationsComponent implements OnInit {
   getDescriptionOffers() {
     this.logOutService.getDescriptionOffers(this.idUser, this.idCompany).subscribe( t => {
       this.data = t.data;
+      console.log(t.data);
       this.dataSource = new MatTableDataSource<any>(this.data);
-      console.log(this.data);
     }, () => console.log('err'), () => {
       this.dataSource.paginator = this.paginator;
     });
@@ -71,7 +72,8 @@ export class ListsolicitationsComponent implements OnInit {
   addPrice(e: any) {
     const body = {
       document: e.master,
-      idclient: e.idclient
+      idclient: e.idclient,
+      flagdocumet: e.document
     };
     const dialogRef = this.dialog.open(ElementPriceComponent, {
       width: '350px',

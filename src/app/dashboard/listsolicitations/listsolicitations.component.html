@@ -23,6 +23,12 @@
           <mat-cell class="tableWidthNo" *matCellDef="let element; let i = index"> {{i+1}} </mat-cell>
         </ng-container>
 
+        <!-- Position Column -->
+        <ng-container matColumnDef="typeShop">
+          <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Tipo de busqueda </mat-header-cell>
+          <mat-cell class="tableWidthUT" *matCellDef="let element; let i = index"> {{element.typeShop}} </mat-cell>
+        </ng-container>
+
         <!-- Weight Column -->
         <ng-container matColumnDef="client">
           <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Cliente </mat-header-cell>
@@ -37,12 +43,16 @@
 
         <!-- Weight Column -->
         <ng-container matColumnDef="select-offer">
-          <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Seleccionar </mat-header-cell>
-          <mat-cell *matCellDef="let element" class="tableWidthUT">
-            <button [disabled]="element.answerText !== null" mat-raised-button color="primary" (click)="addPrice(element)">
+          <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Seleccionar / Precio </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="tableWidthUT" >
+            <button *ngIf="element.answerText === null" mat-raised-button color="primary" (click)="addPrice(element)">
               Aplicar
             </button>
+            <div *ngIf="element.answerText !== null">
+              <span>$ {{element.answerText}}</span>
+            </div>
           </mat-cell>
+          <!---///////-->
         </ng-container>
 
         <!-- Weight Column -->
