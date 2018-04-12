@@ -7,38 +7,117 @@
   <mat-card-content>
 
     <div class="map">
-      <app-google-map></app-google-map>
+      <agm-map (mapClick)="mapClicked($event)" [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+        <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" [markerDraggable]="marker.draggable" (dragEnd)="markerDragEnd(marker, $event)"></agm-marker>
+      </agm-map>
     </div>
 
     <div class="container">
 
-      <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="createUserForm">
+      <div class="usr-rep">
+        <span>Datos de la empresa</span>
+      </div>
+
+      <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="createCompanyForm">
 
         <mat-form-field class="input">
-          <input matInput placeholder="Email username" formControlName="emailUsername">
+          <input matInput placeholder="Email empresa" formControlName="emailCompany">
         </mat-form-field>
 
         <div class="conte">
           <mat-form-field class="input">
-            <input matInput placeholder="First name" formControlName="firstName">
+            <input matInput placeholder="Nombre 1" formControlName="name1Company">
           </mat-form-field>
 
           <mat-form-field class="input">
-            <input matInput placeholder="Second Name" formControlName="secondName">
+            <input matInput placeholder="Nombre 2" formControlName="name2Company">
           </mat-form-field>
         </div>
 
         <div class="conte">
           <mat-form-field class="input">
-            <input matInput placeholder="First Last Name" formControlName="firstLastName">
+            <input matInput placeholder="Nombre 3" formControlName="last1Company">
           </mat-form-field>
 
           <mat-form-field class="input">
-            <input matInput placeholder="Second Last Name" formControlName="secondLastName">
+            <input matInput placeholder="nombre 4" formControlName="last2Company">
           </mat-form-field>
         </div>
 
         <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Razon social" formControlName="nameBusiness">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="NIT de la empresa" formControlName="nitCompany">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Número de contacto" formControlName="contactCompany">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Dirección de la empresa" formControlName="addressCompany">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Latitude" formControlName="latitude">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Longitude" formControlName="longitude">
+          </mat-form-field>
+        </div>
+
+        <div class="usr-rep">
+          <span>Datos del Usuario representante</span>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Primer nombre" formControlName="firstName">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Segundo nombre" formControlName="secondName">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Primer apellido" formControlName="firstLastName">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Segundo apellido" formControlName="secondLastName">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Correo del usuario (Inicio de sesion)" formControlName="emailUsername">
+          </mat-form-field>
+
+          <mat-form-field class="input">
+            <input matInput placeholder="Número de contacto" formControlName="contactNumber">
+          </mat-form-field>
+        </div>
+
+        <div class="conte">
+          <mat-form-field class="input">
+            <input matInput placeholder="Documento de identidad" formControlName="identificationCard">
+          </mat-form-field>
+
+        </div>
+
+        <!--  -->
+
+        <!-- <div class="conte">
           <mat-form-field style="width: 100%; padding-left: 10px">
             <mat-select placeholder="User type" formControlName="idUserType">
               <mat-option *ngFor="let food of userTypes" [value]="food.value">
@@ -64,11 +143,11 @@
           <mat-form-field class="input">
             <input matInput placeholder="Identification card" formControlName="identificationCard">
           </mat-form-field>
-        </div>
+        </div> -->
 
         <div class="actions-container">
           <div *ngIf="!loadSpiner">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!createUserForm.valid">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!createCompanyForm.valid">
               Save
             </button>
           </div>

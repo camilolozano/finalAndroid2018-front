@@ -54,7 +54,7 @@ export class ChatComponent implements OnInit, OnChanges {
 
 
   messages() {
-    this.chatService.getTalk(this.idUser, this.data.data['document']).subscribe(
+    this.chatService.getTalk(this.idUser, this.data.data['document'], this.data.data['idclient'], this.idCompany).subscribe(
       t => {
         this.msg = t.data;
       }
@@ -62,6 +62,7 @@ export class ChatComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
+    console.log(this.data);
     if (this.messageForm.value['msg'].trim() === '') {
       console.log('no');
     } else {

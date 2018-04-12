@@ -34,7 +34,10 @@
   height: 40px;
 }
 
-.map {
-  width: 100%;
-  height: 400px;
+agm-map {
+  height: 300px;
+}
+
+.usr-rep {
+  text-align: center;
 }

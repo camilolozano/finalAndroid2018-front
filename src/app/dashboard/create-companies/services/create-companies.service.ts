@@ -16,37 +16,24 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class ChatService {
+export class CreateCompaniesService {
 
-  private urlSendMsg: string;
-  private urlTalk: string;
+  public urlCreateCompanies: string;
 
   constructor(
     private http: Http
   ) {
     const server = Config.server;
-    this.urlSendMsg = `${server}/chat-web`;
-    this.urlTalk = `${server}/chat-web/talk`;
+    this.urlCreateCompanies = `${server}/company/create`;
   }
 
-  postUrlSendMsg(idUser: number, body: any) {
-    const url = `${this.urlSendMsg}/${idUser}`;
+  postCreateCompanies(params: any, body: any): Observable<any> {
+    const url = `${this.urlCreateCompanies}/${params.idUser}&${params.idCompany}`;
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers, withCredentials: true });
     return this.http
       .post(url, body, options)
-      .map(this.extractData)
-      .catch(this.extractData);
-  }
-
-  getTalk(idUser: number, idDoc: number, idApp: number, idCompany: number) {
-    const url = `${this.urlTalk}/${idUser}&${idDoc}&${idApp}&${idCompany}`;
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    const options = new RequestOptions({ headers: headers, withCredentials: true });
-    return this.http
-      .get(url, options)
       .map(this.extractData)
       .catch(this.extractData);
   }

@@ -22,6 +22,7 @@ import { MaterialModuleModule } from './material-mudule/material-module.module';
 import { EnterPasswordComponent } from './enter-password/enter-password.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
