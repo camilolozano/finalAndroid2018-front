@@ -70,7 +70,7 @@
         <ng-container matColumnDef="chat-offer">
           <mat-header-cell *matHeaderCellDef class="tableWidthUT"> Chat </mat-header-cell>
           <mat-cell *matCellDef="let element" class="tableWidthUT">
-            <button mat-raised-button  (click)="openChat(element)">
+            <button [disabled]="element.answerText === null" mat-raised-button  (click)="openChat(element)">
               Chat
               <mat-icon>chat</mat-icon>
             </button>

@@ -65,10 +65,10 @@ export class CreateCompaniesComponent implements OnInit {
         null, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9A-Za-z ]+'), Validators.required])
       ],
       latitude:  [
-        {value: null, disabled: true }, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
+        {value: null, disabled: false }, Validators.compose([Validators.required])
       ],
       longitude:  [
-        {value: null, disabled: true }, Validators.compose([Validators.maxLength(15), Validators.pattern('[0-9]+'), Validators.required])
+        {value: null, disabled: false }, Validators.compose([Validators.required])
       ],
       emailCompany: [null, Validators.compose([
         Validators.required,

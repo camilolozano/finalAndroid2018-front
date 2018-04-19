@@ -1,5 +1,5 @@
 <div class="full-container">
-  <div class="container-txt">
+  <div *ngIf="msg !== undefined" class="container-txt">
     <div class="card-msg" *ngFor="let v of msg">
       <mat-card>
         <div *ngIf="v.flag === 'usuario'" class="user">
