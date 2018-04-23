@@ -54,7 +54,6 @@ export class ChatComponent implements OnInit, OnChanges {
     this.getSyncMessages();
   }
 
-
   messages() {
     this.chatService.getTalk(this.idUser, this.data.data['master'], this.data.data['idclient'], this.idCompany).subscribe(
       t => {
