@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {
     this.messages();
+    this.getSyncMessages();
   }
 
   ngOnInit() {
@@ -50,6 +51,7 @@ export class ChatComponent implements OnInit, OnChanges {
     this.idUser = userInfo.idSystemUser;
     this.idCompany = userInfo.idCompany;
     this.messages();
+    this.getSyncMessages();
   }
 
 
@@ -57,6 +59,15 @@ export class ChatComponent implements OnInit, OnChanges {
     this.chatService.getTalk(this.idUser, this.data.data['master'], this.data.data['idclient'], this.idCompany).subscribe(
       t => {
         this.msg = t.data;
+      }
+    );
+  }
+
+  getSyncMessages() {
+    this.chatService.getSyncMessages().subscribe(
+      t => {
+        console.log(t);
+        this.messages();
       }
     );
   }
@@ -71,8 +82,6 @@ export class ChatComponent implements OnInit, OnChanges {
         message: this.messageForm.value['msg'],
         idCompany: this.idCompany
       };
-      console.log('-------');
-      console.log(body);
       this.chatService.postUrlSendMsg(this.idUser, body).subscribe(
       t => {
         this.messages();

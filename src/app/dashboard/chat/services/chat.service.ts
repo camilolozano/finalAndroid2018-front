@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Config } from '../../../config/config';
+import * as io from 'socket.io-client';
 
 // Statics
 import 'rxjs/add/observable/throw';
@@ -19,12 +20,14 @@ import 'rxjs/add/operator/toPromise';
 export class ChatService {
 
   private urlSendMsg: string;
+  private socket: any;
   private urlTalk: string;
 
   constructor(
     private http: Http
   ) {
     const server = Config.server;
+    this.socket = io(server);
     this.urlSendMsg = `${server}/chat-web`;
     this.urlTalk = `${server}/chat-web/talk`;
   }
@@ -49,6 +52,18 @@ export class ChatService {
       .get(url, options)
       .map(this.extractData)
       .catch(this.extractData);
+  }
+
+  getSyncMessages(): Observable<any> {
+    const observable = new Observable(observer => {
+      this.socket.on('send-msg-web', (data) => {
+        observer.next(data);
+      });
+      return () => {
+        this.socket.disconnect();
+      };
+    });
+    return observable;
   }
 
   private handleErrorObservable(error: any) {
